@@ -4,7 +4,7 @@ advanced projects, and it has possibly full of bugs.
 
 To use it as a library just add to your source directory. Set the
 TEST_STATUS flag off in main CMakeLists.txt and link it with the
-following code in your .
+following code in yours build system.
 
     add_subdirectory(...the directory of TSML...)
     target_link_library({PROJECT_NAME} {VISIBILITY_CHOICE} TSML)
