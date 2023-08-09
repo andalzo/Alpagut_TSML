@@ -1,6 +1,5 @@
 This is a basic header-only library for passing messages 
-between threads safely. It is probably not suitable for 
-advanced projects, and it has possibly full of bugs.
+between threads safely.
 
 To use it as a library just add to your source directory. Set the
 TEST_STATUS flag off in main CMakeLists.txt and link it with the
