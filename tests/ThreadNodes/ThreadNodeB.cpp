@@ -29,7 +29,7 @@ namespace TSML::Test
         }
 
         counter++;
-        if(counter == 100)
+        if(counter == 1000)
         {
             test_result_runtime = true;
             FinishLoop();

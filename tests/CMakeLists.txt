@@ -17,7 +17,9 @@ add_executable(TSML_TEST
         ThreadNodes/TestThreadMessages.h
         ThreadNodes/CustomException.cpp
         ThreadNodes/CustomException.h
-        test_main.cpp)
+        test_main.cpp
+        ThreadNodes/MainNodeTest.cpp
+        ThreadNodes/MainNodeTest.h)
 
 target_link_libraries(TSML_TEST
         PRIVATE

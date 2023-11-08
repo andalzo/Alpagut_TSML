@@ -1,18 +1,18 @@
-#include "ThreadNodeA.h"
+#include "MainNodeTest.h"
 
 namespace TSML::Test
 {
-    void ThreadNodeA::OnInitialize()
+    void MainNodeTest::OnInitialize()
     {
         if(test_init_exception)
         {
             throw InitException();
         }
-        std::cout << "Initializing ThreadNodeA" << std::endl;
+        std::cout << "Initializing MainNode" << std::endl;
         test_result_init = true;
     }
 
-    void ThreadNodeA::OnRun()
+    void MainNodeTest::OnRun()
     {
         if(test_runtime_exception)
         {
@@ -29,22 +29,22 @@ namespace TSML::Test
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wswitch"
-    void ThreadNodeA::OnMessage(Message<TestThreadMessages> msg)
+    void MainNodeTest::OnMessage(Message<TestThreadMessages> msg)
     {
         switch(msg.header.id)
         {
             case TestThreadMessages::TestMessage1:
             {
-                std::cout << "[ThreadNodeA]: Message 1 Taken" << std::endl;
+                std::cout << "[MainNode]: Message 1 Taken" << std::endl;
                 Message<TestThreadMessages> msg2;
                 msg2.header.id = TestThreadMessages::TestMessage2;
                 Send("NodeB",msg2);
-                std::cout << "[ThreadNodeA]: Message 2 Sent" << std::endl;
+                std::cout << "[MainNode]: Message 2 Sent" << std::endl;
                 break;
             }
             case TestThreadMessages::TestMessage3:
             {
-                std::cout << "[ThreadNodeA]: Message 3 Taken" << std::endl;
+                std::cout << "[MainNode]: Message 3 Taken" << std::endl;
                 test_result_message_received = true;
                 break;
             }
@@ -52,13 +52,13 @@ namespace TSML::Test
     }
 #pragma clang diagnostic pop
 
-    void ThreadNodeA::OnFinish()
+    void MainNodeTest::OnFinish()
     {
         std::cout << "Finishing ThreadNodeA" << std::endl;
         test_result_finish = true;
     }
 
-    void ThreadNodeA::OnException(const TSMLException<TestExceptionType> &e)
+    void MainNodeTest::OnException(const TSMLException<TestExceptionType> &e)
     {
         switch(e.Type())
         {

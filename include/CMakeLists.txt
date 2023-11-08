@@ -5,6 +5,7 @@ add_library(
         Queue.h
         Message.h
         ThreadNode.h
-        TSMLException.h)
+        TSMLException.h
+        MainNode.h)
 
 target_include_directories(TSML INTERFACE ${CMAKE_CURRENT_LIST_DIR})
