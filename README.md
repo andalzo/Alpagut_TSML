@@ -1,9 +1,7 @@
 This is a basic header-only library for passing messages 
 between threads safely.
 
-To use it as a library just add to your source directory. Set the
-TEST_STATUS flag off in main CMakeLists.txt and link it with the
-following code in yours build system.
+To use it as a library just add to your source/external directory within your module.
 
     add_subdirectory(...the directory of TSML...)
     target_link_library({PROJECT_NAME} {VISIBILITY_CHOICE} TSML)
