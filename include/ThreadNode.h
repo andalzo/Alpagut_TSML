@@ -61,6 +61,11 @@ namespace TSML
             context->get_ts_queue(target_node_id).push(msg);
         }
 
+        bool CheckIncomingMessage(Message<ThreadMessageEnum>& msg)
+        {
+            return context->get_ts_queue(node_id).try_pop(msg);
+        }
+
     protected:
 
         virtual void OnInitialize() = 0;
@@ -91,11 +96,6 @@ namespace TSML
             }
             while(!node->thread_finisher);
             node->OnFinish();
-        }
-
-        bool CheckIncomingMessage(Message<ThreadMessageEnum>& msg)
-        {
-            return context->get_ts_queue(node_id).try_pop(msg);
         }
 
         TSMLContext<ThreadMessageEnum>* context = nullptr;
