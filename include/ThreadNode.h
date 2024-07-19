@@ -11,6 +11,8 @@ namespace TSML
     class ThreadNode
     {
     public:
+        virtual ~ThreadNode() = default;
+
         explicit ThreadNode(TSMLContext<ThreadMessageEnum>* context, std::string id) : node_id(std::move(id))
         {
             this->context = context;
