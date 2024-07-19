@@ -9,6 +9,8 @@ namespace TSML
     class MainNode
     {
     public:
+        virtual ~MainNode() = default;
+
         explicit MainNode(TSMLContext<ThreadMessageEnum>* context, std::string id) : node_id(std::move(id))
         {
             this->context = context;
